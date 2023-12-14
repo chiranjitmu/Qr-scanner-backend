@@ -9,13 +9,11 @@ const auth = require("./middleware/authenticate.js");
 
 const app = express();
 app.use(cors());
-const port = 8000;
+const port = process.env.PORT || 8000;
 app.use(bodyParser.json());
 dotenv.config();
 
-const uri = process.env.MONGODB_URI;
-
-mongoose.connect(uri);
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 
