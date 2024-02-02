@@ -73,6 +73,13 @@ app.post("/api/v1/register", async (req, res) => {
     const { fullname, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    const user = await User.findOne({ email });
+
+    if (user) {
+      return res.status(400).json({ message: "User already exists" });
+    }
+
+
     const newUser = new User({
       fullname,
       email,
