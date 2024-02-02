@@ -27,8 +27,9 @@ npm install
 npm run dev
 ```
 
-Open the app in your web browser to experience the QR Scanner app.
+### Do not forgot to add env
 
+Open the app in your web browser to experience the QR Scanner app.
 
 ### Frontend code
 
